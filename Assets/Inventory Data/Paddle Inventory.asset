@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc5646db2cff36478df4394e998c2bb, type: 3}
+  m_Name: Paddle Inventory
+  m_EditorClassIdentifier: 
+  factories:
+  - {fileID: 11400000, guid: 48888bdc6f3af6a4694ea242e6c9f3d7, type: 2}
+  - {fileID: 11400000, guid: 9e7c46ca6a805c442888df700eef4071, type: 2}
+  - {fileID: 11400000, guid: c2f0cbeb1cbfa69438fcdbe0f420bca4, type: 2}

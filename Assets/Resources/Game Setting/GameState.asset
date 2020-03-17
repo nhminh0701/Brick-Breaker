@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc2c52f403ccd9499483d0bd95357e6, type: 3}
+  m_Name: GameState
+  m_EditorClassIdentifier: 
+  inventorySystem: {fileID: 11400000, guid: 5d476dd3013ae5e4c8bef4fc09770831, type: 2}
+  money: {fileID: 11400000, guid: 85f0e911035e6564f833555ee7422bc3, type: 2}
+  levelDatabase: {fileID: 11400000, guid: 8a001fe64fdbc8547b80b9768e2633ee, type: 2}
+  saveLoadData: {fileID: 11400000, guid: 2d633848336a4af46a58586fdb7db96e, type: 2}
