@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 0
     width: 324
     height: 635
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -122,7 +122,7 @@ MonoBehaviour:
     y: 0
     width: 1366
     height: 685
-  m_MinSize: {x: 875, y: 521}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &6
 MonoBehaviour:
@@ -190,10 +190,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 907, y: 471}
-  m_MaxSize: {x: 22002, y: 14021}
+  m_MinSize: {x: 910, y: 471}
+  m_MaxSize: {x: 22005, y: 14021}
   vertical: 0
-  controlID: 134
+  controlID: 68
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,8 +213,8 @@ MonoBehaviour:
     y: 0
     width: 302
     height: 635
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -449,9 +449,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 515.0929, y: 542.6705, z: -1232}
+    m_Target: {x: 510.1432, y: 503.54825, z: -1294.2711}
     speed: 2
-    m_Value: {x: 515.0929, y: 542.6705, z: -1232}
+    m_Value: {x: 510.1432, y: 503.54825, z: -1294.2711}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -501,9 +501,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 542.8478
+    m_Target: 694.14905
     speed: 2
-    m_Value: 542.8478
+    m_Value: 694.14905
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -557,9 +557,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: de420000
       m_LastClickedID: 0
-      m_ExpandedIDs: 98f3ffffb2f3ffff1cf5ffff26f5ffffbaf9ffffc6faffff6e3f000068400000
+      m_ExpandedIDs: c6faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -622,20 +622,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/UI
+    - Assets/ScriptableObject/Game Events
   m_ViewMode: 1
   m_StartGridSize: 67
   m_LastFolders:
-  - Assets/Scripts/UI
+  - Assets/ScriptableObject/Game Events
   m_LastFoldersGridSize: 67
   m_LastProjectPath: D:\Unity_Project\Unity learn\Block Breaker
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 271}
-    m_SelectedIDs: 94420000
-    m_LastClickedID: 17044
-    m_ExpandedIDs: 000000002a4200002c4200002e42000030420000324200003442000036420000384200003a4200003c4200003e42000000ca9a3b
+    scrollPos: {x: 0, y: 77}
+    m_SelectedIDs: de420000
+    m_LastClickedID: 17118
+    m_ExpandedIDs: 0000000086420000884200008a4200008c4200008e42000090420000924200009442000096420000984200009a42000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -663,7 +663,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 98350000
     m_LastClickedID: 13720
-    m_ExpandedIDs: 000000002a4200002c4200002e42000030420000324200003442000036420000384200003a4200003c4200003e420000
+    m_ExpandedIDs: 0000000086420000884200008a4200008c4200008e42000090420000924200009442000096420000984200009a420000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -782,4 +782,4 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 465
+  m_LastVerticalScrollValue: 0

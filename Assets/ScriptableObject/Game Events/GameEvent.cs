@@ -6,10 +6,13 @@ public class GameEvent : ScriptableObject
 {
     private List<GameEventListener> listeners;
 
+    private void OnEnable()
+    {
+        listeners = new List<GameEventListener>();
+    }
+
     public void RaiseEvent()
     {
-        if (listeners == null) return;
-
         for (int index = 0; index < listeners.Count; index ++)
         {
             listeners[index].OnRaiseEvent();
@@ -18,8 +21,6 @@ public class GameEvent : ScriptableObject
 
     public void Register(GameEventListener listener)
     {
-        if (listeners == null) listeners = new List<GameEventListener>();
-
         listeners.Add(listener);
     }
 
