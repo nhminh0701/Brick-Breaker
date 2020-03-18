@@ -21,11 +21,6 @@ public class LevelDataBase : ScriptableObject
         }
     }
 
-    private void OnEnable()
-    {
-        instance = Resources.LoadAll<LevelDataBase>("Game Setting").FirstOrDefault();
-    }
-
     public LevelData[] listLevelDatas;
     /// <summary>
     /// Get Data corresponding current level id

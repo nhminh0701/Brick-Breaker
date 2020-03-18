@@ -7,12 +7,6 @@ using System.IO;
 [CreateAssetMenu(fileName = "Save Load Data", menuName = "Game Session/ Save Load Data")]
 public class SaveLoadData : ScriptableObject
 {
-    private void OnEnable()
-    {
-        instance = Resources.Load<SaveLoadData>("Game Setting/SaveLoadData");
-        InitializeData();
-    }
-
     private static SaveLoadData instance;
     public static SaveLoadData Instance
     {
