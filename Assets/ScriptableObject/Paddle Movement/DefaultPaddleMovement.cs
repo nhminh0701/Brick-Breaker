@@ -20,7 +20,7 @@ public class DefaultPaddleMovement : PaddleMovement
         Vector2 touchPositionInWorld = ConvertScreenToWorld(Input.mousePosition);
         float targetYPos = touchPositionInWorld.y;
 
-        float targetYPosThisFrame = Mathf.Lerp(transform.position.y, targetYPos, smoothControl);
+        float targetYPosThisFrame = Mathf.Lerp(transform.position.y, targetYPos, smoothControl * Time.deltaTime);
 
         transform.position = new Vector2(transform.position.x, targetYPosThisFrame);
     }
@@ -30,7 +30,7 @@ public class DefaultPaddleMovement : PaddleMovement
         Vector2 touchPositionInWorld = ConvertScreenToWorld(Input.mousePosition);
         float targetXPos = Mathf.Clamp(touchPositionInWorld.x, -screenWidth, screenWidth);
 
-        float targetXPosThisFrame = Mathf.Lerp(transform.position.x, targetXPos, smoothControl);
+        float targetXPosThisFrame = Mathf.Lerp(transform.position.x, targetXPos, smoothControl * Time.deltaTime);
 
         transform.position = new Vector2(targetXPosThisFrame, transform.position.y);
     }
