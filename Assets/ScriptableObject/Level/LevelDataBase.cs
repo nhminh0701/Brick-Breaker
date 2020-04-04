@@ -72,6 +72,7 @@ public class LevelDataBase : ScriptableObject
     {
         if (currentLevelId == listLevelDatas.Length - 1) return;
         currentLevelId++;
+        SaveLoadData.Instance.SaveDataToPersistent();
     }
 
     public void ResetLevelDataBase()

@@ -17,6 +17,9 @@ MonoBehaviour:
   objectData:
     objectName: Blue
     objectType: 0
-    isUnlocked: 1
+    isUnlocked: 0
     isSelecting: 0
+    purchaseData:
+      purchaseType: 0
+      purchasePar: 20
   paddleMovement: {fileID: 11400000, guid: 724210d6c2db7b348b1af0bc3436b8d4, type: 2}

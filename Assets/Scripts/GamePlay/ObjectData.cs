@@ -7,6 +7,7 @@ public class ObjectData
     public ObjectType objectType;
     public bool isUnlocked;
     public bool isSelecting;
+    public PurchaseData purchaseData;
 
     [Serializable]
     public class PurchaseData

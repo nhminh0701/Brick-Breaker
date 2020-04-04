@@ -106,9 +106,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator EndingLevel()
     {
         HandleFinishLevelEvent();
-
         playable.Value = false;
-
         yield return new WaitForSeconds(endDelay);
     }
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,7 +6,7 @@ using TMPro;
 public class ObjectInventoryUI : MonoBehaviour
 {
     [Header("General")]
-    [SerializeField] GameObject popupWindow;
+    [SerializeField] UnlockObjPopupUI popupWindow;
     [SerializeField] EquipmentUI pannelPrefab;
 
     [Header("Ball Region")]
@@ -20,13 +18,12 @@ public class ObjectInventoryUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI equipedPaddleText;
 
     ObjectInventory ballInventory;
-
+    List<EquipmentUI> equipmentUIs;
     InventorySystem inventorySystem;
 
     private void Awake()
     {
         SaveLoadData.Instance.InitializeData();
-
         SetupUI();
     }
 
@@ -43,15 +40,23 @@ public class ObjectInventoryUI : MonoBehaviour
         _equipedObjectText.text = _objectInventory.SelectingObject.objectData.objectName;
 
         List<GamePlayObjFactory> listObjectFactory = _objectInventory.factories;
-        List<EquipmentUI> equipmentUIs = new List<EquipmentUI>();
+        equipmentUIs = new List<EquipmentUI>();
 
         for (int index = 0; index < listObjectFactory.Count; index ++)
         {
             EquipmentUI equipmentUI = Instantiate(pannelPrefab, _spawningPosition);
             equipmentUI.Setup(listObjectFactory[index].objectData, _objectInventory, 
-                _equipedObjectText, popupWindow, equipmentUIs);
-
+                _equipedObjectText, popupWindow, this);
             equipmentUIs.Add(equipmentUI);
+        }
+        ResetUIsStates();
+    }
+
+    public void ResetUIsStates()
+    {
+        for (int index = 0; index < equipmentUIs.Count; index ++)
+        {
+            equipmentUIs[index].RefreshState();
         }
     }
 }

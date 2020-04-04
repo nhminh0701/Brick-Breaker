@@ -24,12 +24,10 @@ public class ObjectInventory : ScriptableObject
         get
         {
             ObjectData[] listObjectData = new ObjectData[factories.Count];
-
             for (int index = 0; index < listObjectData.Length; index++)
             {
                 listObjectData[index] = factories[index].objectData;
             }
-
             return listObjectData;
         }
         set
@@ -43,18 +41,16 @@ public class ObjectInventory : ScriptableObject
 
     public GamePlayObjFactory UnlockObject(string objectName = "Default")
     {
-        GamePlayObjFactory returnObj = factories.Find(factory => factory.name == objectName);
+        GamePlayObjFactory returnObj = 
+            factories.Find(factory => factory.objectData.objectName == objectName);
         returnObj.objectData.isUnlocked = true;
-
         SaveLoadData.Instance.SaveDataToPersistent();
-
         return returnObj;
     }
 
     public GamePlayObjFactory SelectObject(string objectName = "Default")
     {
         GamePlayObjFactory returnObj = null;
-
         for (int index = 0; index < factories.Count; index++)
         {
             factories[index].objectData.isSelecting =
@@ -75,10 +71,8 @@ public class ObjectInventory : ScriptableObject
         {
             //factories[index].objectData.isUnlocked = 
             //    factories[index].objectData.objectName == "Default";
-
             factories[index].objectData.isUnlocked =
-                index <= 2;
-
+                index <= 0;
             SelectObject();
         }
     }

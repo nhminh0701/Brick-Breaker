@@ -17,5 +17,8 @@ MonoBehaviour:
   objectData:
     objectName: Pink
     objectType: 1
-    isUnlocked: 1
+    isUnlocked: 0
     isSelecting: 0
+    purchaseData:
+      purchaseType: 1
+      purchasePar: 10

@@ -7,39 +7,29 @@ public class EquipmentUI : MonoBehaviour
 {
     [SerializeField] Color[] stateColors;
 
-    #region Listeners
-    GameObject popupWindow;
+    UnlockObjPopupUI popupWindow;
     ObjectData equipmentData;
     TextMeshProUGUI equipedObjectText;
     ObjectInventory belongingInventory;
-    List<EquipmentUI> equipmentUIs;
-    #endregion
-
+    ObjectInventoryUI objectInventoryUI;
     Image image;
 
-    /// <summary>
-    /// Dependencies Injection
-    /// </summary>
-    /// <param name="_equipmentData"></param>
-    /// <param name="_belongingInventory"></param>
-    /// <param name="_equipText"></param>
-    /// <param name="_popupWindow"></param>
-    /// <param name="_equipmentUIs"></param>
     public void Setup(ObjectData _equipmentData, ObjectInventory _belongingInventory, 
-        TextMeshProUGUI _equipText, GameObject _popupWindow, List<EquipmentUI> _equipmentUIs = null)
+        TextMeshProUGUI _equipText, UnlockObjPopupUI _popupWindow, ObjectInventoryUI _objectInventoryUI)
     {
         equipmentData = _equipmentData;
         popupWindow = _popupWindow;
         equipedObjectText = _equipText;
         belongingInventory = _belongingInventory;
-        equipmentUIs = _equipmentUIs;
-
+        objectInventoryUI = _objectInventoryUI;
         image = GetComponent<Image>();
-
         transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = _equipmentData.objectName;
         GetComponent<Button>().onClick.AddListener(OnClickEvent);
+    }
 
-        RefreshState();
+    public ObjectData GetObjectData()
+    {
+        return equipmentData;
     }
 
     void OnClickEvent()
@@ -48,26 +38,31 @@ public class EquipmentUI : MonoBehaviour
         else OnNotification();
     } 
 
-    void OnSelected()
+    public void OnSelected()
     {
         equipedObjectText.text = equipmentData.objectName;
         belongingInventory.SelectObject(equipmentData.objectName);
+        objectInventoryUI.ResetUIsStates();
+    }
 
-        for (int index = 0; index < equipmentUIs.Count; index ++)
-        {
-            int catchedIndex = index;
-            equipmentUIs[catchedIndex].RefreshState();
-        }
+    public void OnUnlock()
+    {
+        belongingInventory.UnlockObject(equipmentData.objectName);
+        equipedObjectText.text = equipmentData.objectName;
+        belongingInventory.SelectObject(equipmentData.objectName);
+        objectInventoryUI.ResetUIsStates();
     }
 
     void OnNotification()
     {
+        popupWindow.OpenPopup();
+        popupWindow.Setup(this);
         // popup a window
         // pass unlock type
         // if money, show button buy (disable that button in the beginning)
     }
 
-    void RefreshState()
+    public void RefreshState()
     {
         if (equipmentData.isUnlocked == false)
         {
