@@ -9,7 +9,8 @@ public class GameUIManager : MonoBehaviour
 
     private void Start()
     {
-        levelText.text = $"Level {LevelDataBase.Instance.currentLevelId + 1}";
+        int currentLevelId = GameState.Instance.levelDatabase.currentLevelId;
+        levelText.text = $"Level {currentLevelId + 1}";
     }
 
     public void ReLoadScene()

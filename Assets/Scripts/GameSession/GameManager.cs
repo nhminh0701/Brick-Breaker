@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         ResetReferences();
-        levelBuilder.ConstructLevel(LevelDataBase.Instance.currentLevelId);
+        int currentLevelId = GameState.Instance.levelDatabase.currentLevelId;
+        levelBuilder.ConstructLevel(currentLevelId);
         CreateGamePlayObject();
     }
 

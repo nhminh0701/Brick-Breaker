@@ -16,7 +16,7 @@ public class LevelMenu : MonoBehaviour
     private void Awake()
     {
         SaveLoadData.Instance.InitializeData();
-        levelDatabase = LevelDataBase.Instance;
+        levelDatabase = GameState.Instance.levelDatabase;
         SpawnPannels();
     }
 

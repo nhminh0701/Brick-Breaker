@@ -4,9 +4,7 @@ public abstract class PaddleMovement : ScriptableObject
 {
     [SerializeField] protected float screenWidth;
     [SerializeField] protected float smoothControl = 0.1f;
-
     protected Transform transform;
-
     protected float initialYPos;
 
     public void Setup(Transform transform)
@@ -16,7 +14,6 @@ public abstract class PaddleMovement : ScriptableObject
     }
 
     public abstract void MovePaddle(bool canMoveVertical);
-
 
     protected Vector2 ConvertScreenToWorld(Vector2 positionInScreen)
     {

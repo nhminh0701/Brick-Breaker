@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PaddleControl : MonoBehaviour
@@ -15,8 +14,7 @@ public class PaddleControl : MonoBehaviour
     private bool isLockingBall;
     [Tooltip("Attach ball on collide")]
     public bool isStickingMode;
-    
-    // Start is called before the first frame update
+
     void Awake()
     {
         paddleMovement.Setup(transform);
@@ -39,16 +37,13 @@ public class PaddleControl : MonoBehaviour
     private IEnumerator LockBallCoroutine(Ball _ball)
     {
         _ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-
         while(isLockingBall)
         {
             _ball.transform.position = ballLockPosition.position;
-
             if (controllable)
             {
                 LaunchBall();
             }
-
             yield return null;
         }
     }
@@ -61,7 +56,6 @@ public class PaddleControl : MonoBehaviour
         ball.Launch();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (controllable.Value)

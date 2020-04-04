@@ -16,7 +16,6 @@ public class LevelDataBase : ScriptableObject
             {
                 instance = Resources.LoadAll<LevelDataBase>("Game Setting").FirstOrDefault();
             }
-
             return instance;
         }
     }
@@ -50,10 +49,25 @@ public class LevelDataBase : ScriptableObject
             return numberOfUnlockedLevel;
         }
         // For data loading purpose
-        set { }
+        set {
+        }
     }
 
     public void UnlockNewLevel()
+    {
+        GetRewardData();
+        UpdateNewLevelId();
+    }
+
+    void GetRewardData()
+    {
+        GameState currentState= GameState.Instance;
+        LevelReward rewardCurrentLv = CurrentLevelData.reward;
+        int newMoneyVal = currentState.money.Value + rewardCurrentLv.gold;
+        currentState.money.SetValue(newMoneyVal);
+    }
+
+    private void UpdateNewLevelId()
     {
         if (currentLevelId == listLevelDatas.Length - 1) return;
         currentLevelId++;
@@ -62,6 +76,7 @@ public class LevelDataBase : ScriptableObject
     public void ResetLevelDataBase()
     {
         currentLevelId = 0;
+        numberOfUnlockedLevel = 0;
     }
 }
 

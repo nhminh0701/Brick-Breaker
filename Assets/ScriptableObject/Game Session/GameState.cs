@@ -8,7 +8,6 @@ using System.Linq;
 public class GameState : ScriptableObject
 {
     private static GameState instance;
-
     public static GameState Instance
     {
         get
