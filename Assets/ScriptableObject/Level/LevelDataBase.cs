@@ -50,6 +50,7 @@ public class LevelDataBase : ScriptableObject
         }
         // For data loading purpose
         set {
+            numberOfUnlockedLevel = value;
         }
     }
 
