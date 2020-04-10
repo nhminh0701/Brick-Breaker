@@ -22,19 +22,6 @@ public class SaveLoadData : ScriptableObject
     [SerializeField] private GameState gameState;
     public GameData gameData;
 
-    public void SaveDataToPersistent()
-    {
-        ObjectData[] listPaddleData = gameState.inventorySystem.paddleInventory.ListObjectData;
-        ObjectData[] listBallData = gameState.inventorySystem.ballInventory.ListObjectData;
-        int maxUnlockedLevel = gameState.levelDatabase.NumberOfUnlockedLevel;
-        int money = gameState.money.Value;
-
-        GameData gameData = new GameData(maxUnlockedLevel, money, listPaddleData, listBallData);
-        string content = JsonUtility.ToJson(gameData);
-        string path = Path.Combine(Application.persistentDataPath, "GameData.json");
-        File.WriteAllText(path, content);
-    }
-
     public void InitializeData()
     {
         string path = Path.Combine(Application.persistentDataPath, "GameData.json");
@@ -45,6 +32,24 @@ public class SaveLoadData : ScriptableObject
         }
         LoadGameDataFromPersistent();
         LoadGameDataToSystem();
+    }
+
+    public void ResetData()
+    {
+        string path = Path.Combine(Application.persistentDataPath, "GameData.json");
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+        }
+        gameState.ResetGameState();
+    }
+
+    public void SaveDataToPersistent()
+    {
+        GameData gameData = GameData.GetDataFromState(gameState);
+        string content = JsonUtility.ToJson(gameData);
+        string path = Path.Combine(Application.persistentDataPath, "GameData.json");
+        File.WriteAllText(path, content);
     }
 
     /// <summary>
@@ -65,21 +70,7 @@ public class SaveLoadData : ScriptableObject
     void LoadGameDataToSystem()
     {
         gameState = GameState.Instance;
-
-        gameState.inventorySystem.ballInventory.ListObjectData = gameData.listBallData;
-        gameState.inventorySystem.paddleInventory.ListObjectData = gameData.listPaddleData;
-        gameState.money.SetValue(gameData.money);
-        gameState.levelDatabase.NumberOfUnlockedLevel = gameData.maxUnlockedLevel;
+        gameState.SetData(gameData);
         // load max level
-    }
-
-    public void ResetData()
-    {
-        string path = Path.Combine(Application.persistentDataPath, "GameData.json");
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-        }
-        gameState.ResetGameState();
     }
 }

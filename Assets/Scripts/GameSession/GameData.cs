@@ -20,4 +20,14 @@ public class GameData
         this.listPaddleData = listPaddleData;
         this.listBallData = listBallData;
     }
+
+    public static GameData GetDataFromState(GameState gameState)
+    {
+        ObjectData[] listPaddleData = gameState.inventorySystem.paddleInventory.ListObjectData;
+        ObjectData[] listBallData = gameState.inventorySystem.ballInventory.ListObjectData;
+        int maxUnlockedLevel = gameState.levelDatabase.NumberOfUnlockedLevel;
+        int money = gameState.money.Value;
+        GameData gameData = new GameData(maxUnlockedLevel, money, listPaddleData, listBallData);
+        return gameData;
+    }
 }

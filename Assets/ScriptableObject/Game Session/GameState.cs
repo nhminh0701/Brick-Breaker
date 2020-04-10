@@ -33,4 +33,12 @@ public class GameState : ScriptableObject
         money.SetValue(0);
         levelDatabase.ResetLevelDataBase();
     }
+
+    public void SetData(GameData gameData)
+    {
+        inventorySystem.ballInventory.ListObjectData = gameData.listBallData;
+        inventorySystem.paddleInventory.ListObjectData = gameData.listPaddleData;
+        money.SetValue(gameData.money);
+        levelDatabase.NumberOfUnlockedLevel = gameData.maxUnlockedLevel;
+    }
 }
