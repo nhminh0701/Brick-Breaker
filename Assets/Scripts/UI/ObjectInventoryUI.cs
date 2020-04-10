@@ -21,13 +21,7 @@ public class ObjectInventoryUI : MonoBehaviour
     List<EquipmentUI> equipmentUIs;
     InventorySystem inventorySystem;
 
-    private void Awake()
-    {
-        SaveLoadData.Instance.InitializeData();
-        SetupUI();
-    }
-
-    void SetupUI()
+    public void SetupUI()
     {
         inventorySystem = GameState.Instance.inventorySystem;
 

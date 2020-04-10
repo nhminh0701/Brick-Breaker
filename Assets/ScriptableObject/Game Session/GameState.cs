@@ -15,7 +15,6 @@ public class GameState : ScriptableObject
             if (instance == null)
             {
                 instance = Resources.LoadAll<GameState>("Game Setting").FirstOrDefault();
-                SaveLoadData.Instance.LoadGameDataToSystem();
             }
 
             return instance;

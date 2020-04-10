@@ -88,7 +88,7 @@
     <Compile Include="Assets\Scripts\Map\MapData.cs" />
     <Compile Include="Assets\Scripts\Map\MapGenerator.cs" />
     <Compile Include="Assets\Scripts\UI\EquipmentUI.cs" />
-    <Compile Include="Assets\Scripts\UI\LevelMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\UI\MoneyUI.cs" />
     <Compile Include="Assets\Scripts\UI\ObjectInventoryUI.cs" />
     <Compile Include="Assets\Scripts\UI\UnlockObjPopupUI.cs" />

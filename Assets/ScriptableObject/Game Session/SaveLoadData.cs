@@ -20,20 +20,7 @@ public class SaveLoadData : ScriptableObject
     }
 
     [SerializeField] private GameState gameState;
-    GameData gameData;
-
-    public GameData GameData
-    {
-        get
-        {
-            if (gameData == null)
-            {
-                InitializeData();
-            }
-
-            return gameData;
-        }
-    }
+    public GameData gameData;
 
     public void SaveDataToPersistent()
     {
@@ -48,20 +35,6 @@ public class SaveLoadData : ScriptableObject
         File.WriteAllText(path, content);
     }
 
-    /// <summary>
-    /// Used to load current progress, recommended initialization phase of the app
-    /// </summary>
-    public void LoadGameDataToSystem()
-    {
-        InitializeData();
-
-        gameState.inventorySystem.ballInventory.ListObjectData = GameData.listBallData;
-        gameState.inventorySystem.paddleInventory.ListObjectData = GameData.listPaddleData;
-        gameState.money.SetValue(GameData.money);
-        gameState.levelDatabase.NumberOfUnlockedLevel = GameData.maxUnlockedLevel;
-        // load max level
-    }
-
     public void InitializeData()
     {
         string path = Path.Combine(Application.persistentDataPath, "GameData.json");
@@ -71,6 +44,7 @@ public class SaveLoadData : ScriptableObject
             SaveDataToPersistent();
         }
         LoadGameDataFromPersistent();
+        LoadGameDataToSystem();
     }
 
     /// <summary>
@@ -83,6 +57,20 @@ public class SaveLoadData : ScriptableObject
 
         gameData = new GameData();
         JsonUtility.FromJsonOverwrite(content, gameData);
+    }
+
+    /// <summary>
+    /// Used to load current progress, recommended initialization phase of the app
+    /// </summary>
+    void LoadGameDataToSystem()
+    {
+        gameState = GameState.Instance;
+
+        gameState.inventorySystem.ballInventory.ListObjectData = gameData.listBallData;
+        gameState.inventorySystem.paddleInventory.ListObjectData = gameData.listPaddleData;
+        gameState.money.SetValue(gameData.money);
+        gameState.levelDatabase.NumberOfUnlockedLevel = gameData.maxUnlockedLevel;
+        // load max level
     }
 
     public void ResetData()

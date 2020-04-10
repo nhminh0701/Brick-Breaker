@@ -4542,6 +4542,7 @@ MonoBehaviour:
   pannelPrefab: {fileID: 5191519576485836109, guid: 847de064546f9db45998d2271279eb56,
     type: 3}
   buttonSpawnPosition: {fileID: 1656598671}
+  objectInventoryUI: {fileID: 1275621982}
 --- !u!1 &2130270542
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,19 +7,6 @@ using System.Linq;
 [CreateAssetMenu(fileName = "LevelDataBase", menuName = "Level/DataBase")]
 public class LevelDataBase : ScriptableObject
 {
-    private static LevelDataBase instance;
-    public static LevelDataBase Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = Resources.LoadAll<LevelDataBase>("Game Setting").FirstOrDefault();
-            }
-            return instance;
-        }
-    }
-
     public LevelData[] listLevelDatas;
     /// <summary>
     /// Get Data corresponding current level id
